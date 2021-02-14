@@ -2,11 +2,10 @@ import React from "react";
 
 type propsType = {
     on: boolean
-    setOn: (value: boolean) => void
+    onChange: (value: boolean) => void
 }
 
-function UnControlledOnOff(props: propsType) {
-
+export function OnOff(props: propsType) {
 
     const onStyle = {
         width: "100px",
@@ -32,10 +31,8 @@ function UnControlledOnOff(props: propsType) {
 
     return (
         <div>
-            <div style = {onStyle}  onClick={ () => { props.setOn(true)} }> on </div>
-            <div style = {offStyle} onClick={ () => { props.setOn(false)} }> off </div>
+            <div style = {onStyle}  onClick={ () => { props.onChange(true)} }> on </div>
+            <div style = {offStyle} onClick={ () => { props.onChange(false)} }> off </div>
         </div>
     )
 }
-
-export default UnControlledOnOff;

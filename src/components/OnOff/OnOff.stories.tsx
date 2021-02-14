@@ -1,24 +1,19 @@
-import Rating, {RatingValueType} from "./Rating";
 import React, {useState} from 'react'
+import {OnOff} from "./OnOff";
+import {action} from "@storybook/addon-actions";
 
 export default {
-    title: 'Rating stories',
-    component: Rating
+    title: 'OnOff stories',
+    component: OnOff
 };
 
-export const EmptyRating = () => <Rating value={0} onClick={x=>x}/>;
+const callback = action("click")
 
-export const Rating1 = () => <Rating value={1} onClick={x=>x}/>;
+export const onTrue = () => <OnOff on={true} onChange={callback}/>;
 
-export const Rating2 = () => <Rating value={2} onClick={x=>x}/>;
+export const onFalse = () => <OnOff on={false} onChange={callback}/>;
 
-export const Rating3 = () => <Rating value={3} onClick={x=>x}/>;
-
-export const Rating4 = () => <Rating value={4} onClick={x=>x}/>;
-
-export const Rating5 = () => <Rating value={5} onClick={x=>x}/>;
-
-export const ChangeRating = () => {
-    const [rating, setRating] = useState<RatingValueType>(1);
-    return <Rating value={rating} onClick={setRating}/>;
+export const OnChange = () => {
+    let [switchOn, setSwitch] = useState<boolean>(true);
+    return <OnOff on={switchOn} onChange={setSwitch}/>;
 }
